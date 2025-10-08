@@ -11,7 +11,15 @@ export default function HomePage() {
       <ul>
         {clients.map((client) => (
           <li key={client.id}>
-            <Link href={`/clients/${client.id}`}>{client.name}</Link>
+            <Link
+            //  A Different Way Of Setting Link Hrefs
+              href={{
+                pathname: "/clients/[id]",
+                query: { id: client.id },
+              }}
+            >
+              {client.name}
+            </Link>
           </li>
         ))}
       </ul>
